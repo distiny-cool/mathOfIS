@@ -53,5 +53,8 @@ MathOfIS（SJTU信息安全数学基础算法集成小工具）是上海交大�
 
 想找算法的同学建议现在可以去之前学长做的Mathematical-Calculation-Tools，https://github.com/KuroChan1998/Mathematical-Caculation-Tools ，在这里也对之前贡献代码和方法的学长表示感谢！本项目也是受大佬启发想做一个类似的东西，预计2021年8月前完成数学基础1的部分内容
 
+###  补充
+本项目和Mathematical-Calculation-Tools的区别在于本人java水平稀烂，暂时不会有太多类的继承和复用（只想先写点朴实无华的学术垃圾），可能便于大家参考思路、代码和算法（chaozuoye \bushi）,作者本人数基这学期也学得不好，另外可能还会在里面补充一些自己学习到的方法和写的东西，希望可以通过这个项目，加深学习（亮sir给我力量吧！）
+
 再次欢迎大家和我一起完善工具，联系方式：2442658787@qq.com
 
