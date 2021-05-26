@@ -65,5 +65,4 @@ public class sxjc1 {
         return CommonDivisorMultiple.leastCommonMultiple(a, b);
     }
 
-
 }

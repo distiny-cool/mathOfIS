@@ -3,7 +3,7 @@ package org.bwq.xxaqsxjc.sxjc1;
 import java.math.BigInteger;
 
 /**
- * 用于计算最大公因数和最小公倍数
+ * 用于计算最大公因数（辗转相除法）和最小公倍数
  *
  * @author Distiny
  * @date 2021/5/26 14:11
