@@ -97,6 +97,7 @@ public class BezoutIdentity {
         return ValueOfST[0];
     }
 
+
     /**
      * 返回t的值
      *
@@ -121,7 +122,7 @@ public class BezoutIdentity {
      */
     public BigInteger[] BezoutCal(BigInteger a, BigInteger b) {
 
-        BigInteger c = greatestCommonDivisor(a,b);//先对a，b同除以最大公因数
+        BigInteger c = greatestCommonDivisor(a, b);//先对a，b同除以最大公因数
         valueOfc = c;
         a = a.divide(c);
         b = b.divide(c);
@@ -153,18 +154,75 @@ public class BezoutIdentity {
 
         int j = 1;//辅助数组的指针
 
-        while (r.get(j + 1).compareTo(sxjc1.VALUE_0) != 0){
-                j++;
-                s.add(j, ((s.get(j - 2)).subtract((q.get(j).multiply(s.get(j - 1))))));
-                t.add(j, ((t.get(j - 2)).subtract((q.get(j).multiply(t.get(j - 1))))));
-                q.add(j + 1, r.get(j - 1).divide(r.get(j)));
-                r.add(j + 1, ((r.get(j - 1)).subtract((q.get(j + 1).multiply(r.get(j))))));
-            }
+        while (r.get(j + 1).compareTo(sxjc1.VALUE_0) != 0) {
+            j++;
+            s.add(j, ((s.get(j - 2)).subtract((q.get(j).multiply(s.get(j - 1))))));
+            t.add(j, ((t.get(j - 2)).subtract((q.get(j).multiply(t.get(j - 1))))));
+            q.add(j + 1, r.get(j - 1).divide(r.get(j)));
+            r.add(j + 1, ((r.get(j - 1)).subtract((q.get(j + 1).multiply(r.get(j))))));
+        }
 
         ValueOfST[0] = s.get(j);
         ValueOfST[1] = t.get(j);
 
         return ValueOfST;
+    }
+
+    /**
+     * 返回计算贝祖等式后又s变为正之后的值（中国剩余定理中会用到）
+     *
+     * @author: distiny
+     * @date: 2021/5/27
+     * @return: java.math.BigInteger
+     */
+    public static BigInteger BezoutCalForS(BigInteger a, BigInteger b) {
+
+        BigInteger c = greatestCommonDivisor(a, b);//先对a，b同除以最大公因数
+        valueOfc = c;
+        a = a.divide(c);
+        b = b.divide(c);
+
+        if ((a.compareTo(sxjc1.VALUE_0) <= 0) || (b.compareTo(sxjc1.VALUE_0) <= 0)) {
+            System.out.println("请输入正整数！");
+            return null;
+        }
+
+        /**
+         * s, t, q, r : 辅助数组
+         */
+        LinkedList<BigInteger> s = new LinkedList<>();
+        LinkedList<BigInteger> t = new LinkedList<>();
+        LinkedList<BigInteger> q = new LinkedList<>();
+        LinkedList<BigInteger> r = new LinkedList<>();
+
+        //给j,s,t,q,r赋初值
+        r.add(0, a);
+        r.add(1, b);
+        s.add(0, sxjc1.VALUE_1);
+        s.add(1, sxjc1.VALUE_0);
+        t.add(0, sxjc1.VALUE_0);
+        t.add(1, sxjc1.VALUE_1);
+        q.add(null);
+        q.add(null);//只是为了填充链表，使得其可以在最后add（保持编号的一致性）
+        q.add(2, r.get(0).divide(r.get(1)));
+        r.add(2, ((r.get(0)).subtract((q.get(2).multiply(r.get(1))))));
+
+        int j = 1;//辅助数组的指针
+
+        while (r.get(j + 1).compareTo(sxjc1.VALUE_0) != 0) {
+            j++;
+            s.add(j, ((s.get(j - 2)).subtract((q.get(j).multiply(s.get(j - 1))))));
+            t.add(j, ((t.get(j - 2)).subtract((q.get(j).multiply(t.get(j - 1))))));
+            q.add(j + 1, r.get(j - 1).divide(r.get(j)));
+            r.add(j + 1, ((r.get(j - 1)).subtract((q.get(j + 1).multiply(r.get(j))))));
+        }
+
+        BigInteger tmp = s.get(j);
+
+        if (tmp.compareTo(BigInteger.ZERO) <= 0) {
+            tmp = tmp.add(b);
+        }
+        return tmp;
     }
 
 
