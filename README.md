@@ -35,17 +35,25 @@ MathOfIS（SJTU信息安全数学基础算法集成小工具）是上海交大�
 │      App.java
 │
 ├─demo
-│      BezoutIdentityDemo.java 
+│      BezoutIdentityDemo.java
+│      ChineseReminderTheormDemo.java
 │      GcdLcmDemo.java
+│      RSAdemo.java
+│
+├─util
+│      EncryptionUtil.java
+│      RandomUtil.java
 │
 └─xxaqsxjc
     ├─sxjc1
     │      BezoutIdentity.java
+    │      ChineseRemainderTheorem.java
     │      CommonDivisorMultiple.java
+    │      PrimalityTest.java
+    │      RSA.java
     │      sxjc1.java
     │
     └─sxjc2
-
 
 ````
 
@@ -58,6 +66,8 @@ MathOfIS（SJTU信息安全数学基础算法集成小工具）是上海交大�
 
 - 增加了求两个数字的最大公因数和最小公倍数的类和示例 （2021年5月26日）
 - 增加了增加了求贝祖等式的类和示例（2021年5月26日）
+- 增加了素数测试类、添加了加密的工具（随机数生成、字符转换等）
+- 增加了RSA的算法和示例（目前还是单个字符加密后拼接，不太合理，之后会进一步改进）（2021年5月29日）
   
   
 
