@@ -65,4 +65,15 @@ public class sxjc1 {
         return CommonDivisorMultiple.leastCommonMultiple(a, b);
     }
 
+    /**
+     * 返回计算贝祖等式后又s变为正之后的值
+     *
+     * @author: distiny
+     * @date: 2021/5/27
+     * @return: java.math.BigInteger
+     */
+    public static BigInteger BezoutCalForS(BigInteger a, BigInteger b) {
+        return BezoutIdentity.BezoutCalForS(a, b);
+    }
+
 }
